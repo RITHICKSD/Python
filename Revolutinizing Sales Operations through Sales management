@@ -1,0 +1,55 @@
+```
+class Customer:
+    def __init__(self, name, email, phone):
+        self.name = name
+        self.email = email
+        self.phone = phone
+
+class CRM:
+    def __init__(self):
+        self.customers = []
+
+    def add_customer(self, customer):
+        self.customers.append(customer)
+
+    def search_customer_by_name(self, name):
+        for customer in self.customers:
+            if customer.name == name:
+                return customer
+        return None
+
+
+crm = CRM()
+customer1 = Customer("John Doe", "john@example.com", "123-456-7890")
+crm.add_customer(customer1)
+search_result = crm.search_customer_by_name("John Doe")
+if search_result:
+    print("Customer found:", search_result.name)
+else:
+    print("Customer not found.")
+```
+
+
+
+
+class Deal:
+    def __init__(self, name, amount, stage):
+        self.name = name
+        self.amount = amount
+        self.stage = stage
+
+class Pipeline:
+    def __init__(self):
+        self.deals = []
+
+    def add_deal(self, deal):
+        self.deals.append(deal)
+
+    def get_deals_by_stage(self, stage):
+        return [deal for deal in self.deals if deal.stage == stage]
+
+pipeline = Pipeline()
+deal1 = Deal("Deal 1", 1000, "Prospecting")
+pipeline.add_deal(deal1)
+deals_in_stage = pipeline.get_deals_by_stage("Prospecting")
+print("Deals in Prospecting stage:", len(deals_in_stage))
